@@ -1,48 +1,49 @@
-﻿using Library.API.Identity;
-using Microsoft.AspNetCore.Identity;
+﻿//using Library.API.Identity;
+//using Microsoft.AspNetCore.Identity;
 
-namespace Library.API.Services
-{
-    public interface IUserServices
-    {
-        Task<UserMangerResponse> RegistertUserAsync(RegisterUser model);
-    }
+//namespace Library.API.Services
+//{
+//    public interface IUserServices
+//    {
+//        Task<Response> RegistertUserAsync(RegisterUser model);
+//    }
 
-    public class UserServices : IUserServices
-    {
-        private readonly UserManager<IdentityUser> _userManager;
+//    public class UserServices : IUserServices
+//    {
+//        private readonly UserManager<IdentityUser> _userManager;
 
-        public UserServices(UserManager<IdentityUser> userManager)
-        {
-            _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
-        }
-        public async Task<UserMangerResponse> RegistertUserAsync(RegisterUser model)
-        {
-            if (model == null) throw new ArgumentNullException(nameof(model));
+//        public UserServices(UserManager<IdentityUser> userManager)
+//        {
+//            _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
+//        }
 
-            var identityUser = new IdentityUser
-            {
-                Email = model.Email,
-                UserName = model.Email,
-            };
+//        public async Task<Response> RegistertUserAsync(RegisterUser model)
+//        {
+//            if (model == null) throw new ArgumentNullException(nameof(model));
 
-            var userToCreate = await _userManager.CreateAsync(identityUser, model.Password);
+//            var identityUser = new IdentityUser
+//            {
+//                Email = model.Email,
+//                UserName = model.Email,
+//            };
 
-            if (!userToCreate.Succeeded)
-            {
-                return new UserMangerResponse
-                {
-                    Message = "User did not create",
-                    IsSuccess = false,
-                    Erorrs = userToCreate.Errors.Select(e => e.Description)
-                };
-            }
+//            var userToCreate = await _userManager.CreateAsync(identityUser, model.Password);
 
-            return new UserMangerResponse
-            {
-                Message = "User created successfully",
-                IsSuccess = true,
-            };
-        }
-    }
-}
+//            if (!userToCreate.Succeeded)
+//            {
+//                return new Response
+//                {
+//                    Message = "User did not create",
+//                    IsSuccess = false,
+//                    Erorrs = userToCreate.Errors.Select(e => e.Description)
+//                };
+//            }
+
+//            return new Response
+//            {
+//                Message = "User created successfully",
+//                IsSuccess = true,
+//            };
+//        }
+//    }
+//}

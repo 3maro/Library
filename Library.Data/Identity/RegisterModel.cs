@@ -2,7 +2,7 @@
 
 namespace Library.API.Identity
 {
-    public class RegisterUser
+    public class RegisterModel
     {
         [Required(ErrorMessage = "The Email field is required.")]
         [StringLength(50, ErrorMessage = "The Email field must be at most 50 characters.")]

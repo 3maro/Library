@@ -2,15 +2,17 @@
 using Library.API.Entities;
 using Library.API.Model;
 using Library.API.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace Library.API.Controllers
 {
-    [Route("api/books")]
+    [Authorize]
+    [Route("api/v{version:apiVersion}/books")]
+    [ApiVersion("1")]
     [ApiController]
-
     public class BooksController : ControllerBase
     {
         private readonly IBookServices _bookServices;
