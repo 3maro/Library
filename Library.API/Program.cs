@@ -1,6 +1,6 @@
+using Library.API.Data;
+using Library.API.Identity;
 using Library.API.Services;
-using Library.Data;
-using Library.Data.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -78,10 +78,12 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddControllers(options =>
 {
     options.ReturnHttpNotAcceptable = true;
-
 })
     // add newtonsoft
-    .AddNewtonsoftJson()
+    .AddNewtonsoftJson( options =>
+    {
+        options.SerializerSettings.DateFormatString = "yyyy";
+    })
     // xml format (if needed)
     .AddXmlDataContractSerializerFormatters()
     // custome 500 status code error
@@ -163,6 +165,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(x => x
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
 
 app.UseHttpsRedirection();
 
