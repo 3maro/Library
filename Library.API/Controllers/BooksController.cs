@@ -10,8 +10,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace Library.API.Controllers
 {
     [Authorize]
-    [Route("api/v{version:apiVersion}/books")]
-    [ApiVersion("1")]
+    [Route("api/books")]
+    //[Route("api/v{version:apiVersion}/books")]
+    //[ApiVersion("1")]
     [ApiController]
     public class BooksController : ControllerBase
     {
@@ -99,7 +100,7 @@ namespace Library.API.Controllers
 
             patchDocument.ApplyTo(bookToPatch, ModelState);
 
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
@@ -109,7 +110,7 @@ namespace Library.API.Controllers
                 return BadRequest(ModelState);
             }
 
-            _mapper.Map(bookToPatch,bookEntity);
+            _mapper.Map(bookToPatch, bookEntity);
             await _bookServices.SaveChangesAcny();
 
             var bookToReturn = _mapper.Map<BookDto>(bookEntity);
