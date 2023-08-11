@@ -1,14 +1,17 @@
 ﻿using AutoMapper;
 using Library.API.Entities;
-using Library.API.Model;
+using Library.API.Models;
 using Library.API.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-
+using System.Text.Json;
 
 namespace Library.API.Controllers
 {
+    /// <summary>
+    /// Controller for managing books.
+    /// </summary>
     [Authorize]
     [Route("api/books")]
     //[Route("api/v{version:apiVersion}/books")]
@@ -18,23 +21,41 @@ namespace Library.API.Controllers
     {
         private readonly IBookServices _bookServices;
         private readonly IMapper _mapper;
+        const int maxBooksPageSize = 20;
 
+        /// <summary>
+        /// BooksController Contractor
+        /// </summary>
         public BooksController(IBookServices bookServices, IMapper mapper)
         {
             _bookServices = bookServices ?? throw new ArgumentNullException(nameof(bookServices));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        // GET
+        /// <summary>
+        /// GET all books.
+        /// </summary>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<BookDto>>> GetAllBooks()
+        public async Task<ActionResult<IEnumerable<BookDto>>> GetAllBooks(
+                string? name, string? searchQuery, int pageNumber =1, int pageSize = 4)
         {
-            var bookEntities = await _bookServices.GetBooksAsync();
+            if (pageSize > maxBooksPageSize)
+            {
+                pageSize = maxBooksPageSize;
+            }
+
+            var (bookEntities, paginationMetadata) = await _bookServices.GetBooksAsync(name, searchQuery, pageNumber, pageSize);
+
+            Response.Headers.Add("X-Pagination",
+                JsonSerializer.Serialize(paginationMetadata));
 
             return Ok(_mapper.Map<IEnumerable<BookDto>>(bookEntities));
         }
 
-        // GET Book
+        /// <summary>
+        /// GET a specific book by its ID.
+        /// </summary>
+        /// <param name="bookId">The ID of the book to retrieve.</param>
         [HttpGet("{bookid}", Name = "GetOneBook")]
         public async Task<ActionResult<BookDto>> GetOneBook(Guid bookId)
         {
@@ -47,7 +68,10 @@ namespace Library.API.Controllers
             return Ok(_mapper.Map<BookDto>(bookEntity));
         }
 
-        // POST
+        /// <summary>
+        /// Creates a new book.
+        /// </summary>
+        /// <param name="book">The <see cref="BookForCreationDto"/> representing the book to create.</param>
         [HttpPost]
         public async Task<ActionResult<BookDto>> CreateBook(BookForCreationDto book)
         {
@@ -65,7 +89,11 @@ namespace Library.API.Controllers
                 );
         }
 
-        // PUT
+        /// <summary>
+        /// Full Update an existing book.
+        /// </summary>
+        /// <param name="bookId">The ID of the book to update.</param>
+        /// <param name="book">The <see cref="BookForUpdateDto"/> containing updated book information.</param>
         [HttpPut("{bookid}")]
         public async Task<ActionResult<BookDto>> UpdateBook(Guid bookId, BookForUpdateDto book)
         {
@@ -86,7 +114,11 @@ namespace Library.API.Controllers
         }
 
 
-        // Patch
+        /// <summary>
+        /// Partially updates an existing book.
+        /// </summary>
+        /// <param name="bookId">The ID of the book to partially update.</param>
+        /// <param name="patchDocument">The <see cref="JsonPatchDocument{BookForUpdateDto}"/> containing partial update instructions.</param>
         [HttpPatch("{bookid}")]
         public async Task<ActionResult<BookDto>> PartiallyUpdateBook(Guid bookId, JsonPatchDocument<BookForUpdateDto> patchDocument)
         {
@@ -121,7 +153,10 @@ namespace Library.API.Controllers
                 );
         }
 
-        // DELETE
+        /// <summary>
+        /// Deletes a book.
+        /// </summary>
+        /// <param name="bookid">The ID of the book to delete.</param>
         [HttpDelete("{bookid}")]
         public async Task<ActionResult> Delete(Guid bookid)
         {

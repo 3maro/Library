@@ -8,6 +8,9 @@ using System.Text;
 
 namespace Library.API.Controllers
 {
+    /// <summary>
+    /// Controller for user authentication and registration.
+    /// </summary>
     [Route("api/Authentication")]
     [ApiController]
     public class AuthenticateController : ControllerBase
@@ -16,7 +19,10 @@ namespace Library.API.Controllers
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _configuration;
 
- 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AuthenticateController"/> class.
+        /// This constructor is responsible for setting up the necessary dependencies for authentication.
+        /// </summary>
         public AuthenticateController(
             UserManager<ApplicationUser> userManager,
             RoleManager<IdentityRole> roleManager, 
@@ -27,12 +33,10 @@ namespace Library.API.Controllers
             _configuration = configuration;
         }
 
-
         /// <summary>
-        /// 
+        /// Attempts to log in a user using the provided credentials.
         /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
+        /// <param name="model">The <see cref="Login"/> model containing user credentials.</param>
         [HttpPost]
         [Route("login")]
         public async Task<IActionResult> Login(Login model)
@@ -72,7 +76,9 @@ namespace Library.API.Controllers
             return Unauthorized();
         }
 
-
+        /// <summary>
+        /// Registers a new user with the provided information.
+        /// </summary>
         [HttpPost]
         [Route("register")]
         public async Task<IActionResult> Register([FromBody] RegisterModel model)
@@ -95,6 +101,9 @@ namespace Library.API.Controllers
         }
 
 
+        /// <summary>
+        /// Registers a new admin with the provided information.
+        /// </summary>
         [HttpPost]
         [Route("register-admin")]
         public async Task<IActionResult> RegisterAdmin([FromBody] RegisterModel model)
