@@ -1,16 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Library.API.Entities
+namespace Library.API.Models
 {
     /// <summary>
-    /// Represents a quote with content.
+    /// Represents a data transfer object (DTO) for a quote.
     /// </summary>
-    public class Quote
+    public class QuoteDto
     {
         /// <summary>
         /// Gets or sets the unique identifier for the quote.
         /// </summary>
-        [Key]
         public Guid Id { get; set; }
 
         /// <summary>
@@ -26,5 +25,4 @@ namespace Library.API.Entities
         [MaxLength(100)]
         public string BookName { get; set; } = string.Empty;
     }
-
 }

@@ -1,29 +1,23 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Library.API.Entities
+﻿namespace Library.API.Models
 {
     /// <summary>
-    /// Represents a book entity.
+    /// Represents a data transfer object (DTO) for a book.
     /// </summary>
-    public class Book
+    public class BookDto
     {
         /// <summary>
-        /// Gets or sets the unique identifier of the book.
+        /// Gets or sets the unique identifier for the book.
         /// </summary>
-        [Key]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Gets or sets the title of the book.
         /// </summary>
-        [Required]
-        [MaxLength(100)]
         public string Title { get; set; } = string.Empty;
 
         /// <summary>
         /// Gets or sets a short description of the book.
         /// </summary>
-        [MaxLength(250)]
         public string ShortDescription { get; set; } = string.Empty;
 
         /// <summary>
@@ -36,4 +30,5 @@ namespace Library.API.Entities
         /// </summary>
         public DateTime PublishDate { get; set; }
     }
+
 }

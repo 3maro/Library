@@ -18,11 +18,11 @@ builder.Services.AddDbContext<LibraryDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+
 // Add Services
 builder.Services.AddScoped<IBookServices, BookServices>();
+builder.Services.AddScoped<IQuoteServices, QuoteServices>();
 
-// Add Register Library.Data Services
-//builder.Services.RegisterLibraryDataServices();
 
 // Identity settings
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
@@ -49,6 +49,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
     .AddEntityFrameworkStores<LibraryDbContext>()
     .AddDefaultTokenProviders();
 
+
 // Authentication options
 builder.Services.AddAuthentication(options =>
 {
@@ -71,8 +72,10 @@ builder.Services.AddAuthentication(options =>
         };
     });
 
+
 // Add automapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 
 // Countrollers
 builder.Services.AddControllers(options =>
@@ -80,7 +83,7 @@ builder.Services.AddControllers(options =>
     options.ReturnHttpNotAcceptable = true;
 })
     // add newtonsoft
-    .AddNewtonsoftJson( options =>
+    .AddNewtonsoftJson(options =>
     {
         options.SerializerSettings.DateFormatString = "yyyy";
     })
@@ -96,8 +99,6 @@ builder.Services.AddControllers(options =>
         };
     });
 
-
-builder.Services.AddEndpointsApiExplorer();
 
 // Swagger Doc
 builder.Services.AddSwaggerGen(options =>
@@ -121,9 +122,7 @@ builder.Services.AddSwaggerGen(options =>
 
     var xmlCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     var xmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentsFile);
-
     options.IncludeXmlComments(xmlCommentsFullPath);
-
 
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
@@ -150,12 +149,16 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+
 builder.Services.AddApiVersioning(setupAction =>
 {
     setupAction.AssumeDefaultVersionWhenUnspecified = true;
     setupAction.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
     setupAction.ReportApiVersions = true;
 });
+
+
+builder.Services.AddEndpointsApiExplorer();
 
 var app = builder.Build();
 
