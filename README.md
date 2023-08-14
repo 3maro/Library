@@ -5,7 +5,7 @@ Welcome to the Library API project! This API provides endpoints to manage books,
 ## Table of Contents
 
 - [Description](#description)
-- [API Documentation](#API-Documentation)
+- [API Documentation](#api-documentation)
 - [Getting Started](#getting-started)
 - [API Endpoints](#api-endpoints)
 - [Technologies Used](#technologies-used)
