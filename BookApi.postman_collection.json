@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "280d9a59-2a8f-43ac-a5cb-3d9c1cfd7849",
 		"name": "BookApi",
+		"description": "This Postman collection provides a comprehensive set of API requests and endpoints for testing and interacting with the Library Application backend. The Library Application is a training project that demonstrates CRUD (Create, Read, Update, Delete) operations for managing books in a simple library system.\n\n## Collection Structure\n\nThe Postman collection is organized into the following folders:\n\n- **Authentication**: Contains requests for authenticating users and obtaining JWT tokens.\n    \n- **Books**: Includes requests for managing books, such as creating, updating, deleting, and retrieving book information.\n    \n\n## Using the Collection\n\n1. Select a request from the desired folder.\n    \n2. Click on the request to open it in the request editor.\n    \n3. Modify the request parameters as needed, such as adding authentication tokens or updating request body data.\n    \n4. Click the \"Send\" button to make the API request.\n    \n5. Review the response in the lower panel of the request editor. The response will include relevant information based on the request you made.\n    \n\n## Authentication\n\nTo use certain API endpoints, you'll need to authenticate with the backend using JSON Web Tokens (JWT). The collection includes requests for obtaining a JWT token, refreshing tokens, and logging out.\n\n## API Endpoints\n\nThe collection covers a variety of API endpoints, allowing you to:\n\n- Register and authenticate users.\n    \n- Perform CRUD operations on books, including adding, updating, and deleting book information.\n    \n\n## Notes\n\n- Ensure that you have the Library Application backend server running or deployed before making requests from this collection.\n    \n- Some requests may require authorization. For these requests, include the JWT token obtained from the authentication requests in the \"Authorization\" header.\n    \n\n## Contributors\n\nThis Postman collection was created and maintained by \\[Your Name\\].\n\nFeel free to explore and test the various API endpoints provided by the Library Application. Happy testing!\n\n[GitHub Repository](https://github.com/3maro/Library)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "28074027"
 	},
@@ -121,7 +122,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"TEst - from azure\",\r\n    \"shortDescription\": \"Test - from azure\",\r\n    \"author\": \"Test - from azure\",\r\n    \"publishDate\": \"2023-05-05\"\r\n}",
+					"raw": "{\r\n    \"title\": \"AAATEst - from azure\",\r\n    \"shortDescription\": \"AAATest - from azure\",\r\n    \"author\": \"AAATest - from azure\",\r\n    \"publishDate\": \"2023-05-05\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -538,7 +539,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://{{url}}/api/books?pageNumber=1&pageSize=5",
+					"raw": "https://{{url}}/api/books?pageNumber=1&pageSize=20",
 					"protocol": "https",
 					"host": [
 						"{{url}}"
@@ -554,7 +555,7 @@
 						},
 						{
 							"key": "pageSize",
-							"value": "5"
+							"value": "20"
 						}
 					]
 				}
