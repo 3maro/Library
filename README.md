@@ -5,6 +5,7 @@ Welcome to the Library API project! This API provides endpoints to manage books,
 ## Table of Contents
 
 - [Description](#description)
+- [API Documentation](#API-Documentation)
 - [Getting Started](#getting-started)
 - [API Endpoints](#api-endpoints)
 - [Technologies Used](#technologies-used)
@@ -14,6 +15,25 @@ Welcome to the Library API project! This API provides endpoints to manage books,
 ## Description
 
 The Library API is a RESTful web service built using ASP.NET Core. It allows users to manage books and quotes, as well as perform user authentication. The API is designed to handle CRUD operations for books and quotes, and it provides authentication mechanisms using JWT tokens.
+
+## API Documentation
+
+For testing and interacting with the backend API, you can use the provided Postman collection file `BookApi.postman_collection.json`. This collection includes a set of sample API requests and responses that you can import into Postman.
+
+To use the Postman collection:
+
+1. Download the `BookApi.postman_collection.json` file from the repository.
+
+2. Open Postman.
+
+3. Click on "Import" in the top-left corner of Postman.
+
+4. Select the downloaded `BookApi.postman_collection.json` file.
+
+5. Once imported, you will have access to a variety of API endpoints that correspond to the features of the library application. You can use these requests to test the functionality of the backend API.
+
+Please note that you should have the backend server running or deployed in order to successfully test the API endpoints using Postman.
+
 
 ## Getting Started
 
