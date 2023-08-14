@@ -1,0 +1,681 @@
+{
+	"info": {
+		"_postman_id": "280d9a59-2a8f-43ac-a5cb-3d9c1cfd7849",
+		"name": "BookApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28074027"
+	},
+	"item": [
+		{
+			"name": "Get All Books",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{url}}/api/books",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get One Book",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{url}}/api/books/1f53f818-e81b-40c9-aa9d-b2e07aed12fb",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"books",
+						"1f53f818-e81b-40c9-aa9d-b2e07aed12fb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get One Book (Accept: application/json)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{url}}/api/books/1A54691C-BFD1-40F4-9C4E-43FF6D435404",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"books",
+						"1A54691C-BFD1-40F4-9C4E-43FF6D435404"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get One Book (Accept: application/xml)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{url}}/api/books/b56ee9c8-e924-4998-81cf-8a911b245e81",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"books",
+						"b56ee9c8-e924-4998-81cf-8a911b245e81"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"TEst - from azure\",\r\n    \"shortDescription\": \"Test - from azure\",\r\n    \"author\": \"Test - from azure\",\r\n    \"publishDate\": \"2023-05-05\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url}}/api/books",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Book (LongTitle)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"The world is a vast and fascinating place, full of wonders and mysteries waiting to be explored. From the towering mountains to the depths of the ocean, there is no shortage of beauty and marvels to behold.In every corner of the globe, cultures and civilizations have flourished, leaving behind a rich tapestry of history and traditions. The stories of ancient empires, brave explorers, and legendary heroes echo through time, captivating our imaginations and inspiring us to seek our own adventures.\",\r\n    \"shortDescription\": \"Test\",\r\n    \"author\": \"Test\",\r\n    \"publishDate\": \"1927-05-05T00:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url}}/api/books",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Book (LongDescription)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"The world\",\r\n    \"shortDescription\": \"The world is a vast and fascinating place, full of wonders and mysteries waiting to be explored. From the towering mountains to the depths of the ocean, there is no shortage of beauty and marvels to behold.In every corner of the globe, cultures and civilizations have flourished, leaving behind a rich tapestry of history and traditions. The stories of ancient empires, brave explorers, and legendary heroes echo through time, captivating our imaginations and inspiring us to seek our own adventures.\",\r\n    \"author\": \"Test\",\r\n    \"publishDate\": \"1927-05-05T00:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url}}/api/books",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Book",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://{{url}}/api/books/5b104bd9-7b78-4f01-969d-8864af0c3be3",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"books",
+						"5b104bd9-7b78-4f01-969d-8864af0c3be3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Book",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Updated 3 - 1984\",\r\n    \"shortDescription\": \"Updated - A dystopian and political science fiction novel that depicts a society controlled by a totalitarian government.\",\r\n    \"author\": \"Updated 3 - George Orwell\",\r\n    \"publishDate\": \"1949-06-08T00:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url}}/api/{{Version}}/books/d6d555f0-c8a8-43ce-b4ad-ec51357efd21",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"{{Version}}",
+						"books",
+						"d6d555f0-c8a8-43ce-b4ad-ec51357efd21"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Book (Null Input)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":null,\r\n    \"shortDescription\": null,\r\n    \"author\": null,\r\n    \"publishDate\": \"1949-06-08T00:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url}}/api/{{Version}}/books/d6d555f0-c8a8-43ce-b4ad-ec51357efd21",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"{{Version}}",
+						"books",
+						"d6d555f0-c8a8-43ce-b4ad-ec51357efd21"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n      \"op\": \"replace\",\r\n      \"path\": \"/title\",\r\n      \"value\": \"Updated from PATCH - title 3\"\r\n    },\r\n    {\r\n      \"op\": \"replace\",\r\n      \"path\": \"/author\",\r\n      \"value\": \"Updated from PATCH - title 3\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url}}/api/books/47c5d7b1-2323-4a65-a654-3338cb6f3128",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"books",
+						"47c5d7b1-2323-4a65-a654-3338cb6f3128"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch (multiple)",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n      \"op\": \"replace\",\r\n      \"path\": \"/title\",\r\n      \"value\": \"Updated from PATCH 1\"\r\n    },\r\n    {\r\n      \"op\": \"replace\",\r\n      \"path\": \"/shortDescription\",\r\n      \"value\": \"Updated from PATCH 1\"\r\n    },\r\n    {\r\n      \"op\": \"replace\",\r\n      \"path\": \"/author\",\r\n      \"value\": \"Updated from PATCH 1\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url}}/api/books/47c5d7b1-2323-4a65-a654-3338cb6f3128",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"books",
+						"47c5d7b1-2323-4a65-a654-3338cb6f3128"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register User (invalid input)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"\",\r\n    \"Password\":\"3\",\r\n    \"ConfirmPassword\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url}}/api/Authentication/Register",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"Authentication",
+						"Register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"user@user.user\",\r\n    \"Password\":\"12345&aA\",\r\n    \"ConfirmPassword\": \"12345&aA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url}}/api/Authentication/register",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"Authentication",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login as user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"user@user.user\",\r\n    \"Password\":\"12345&aA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url}}/api/Authentication/Login",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"Authentication",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login as user Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"user@user.user\",\r\n    \"Password\":\"12345&aA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url}}/api/Authentication/Login",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"Authentication",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"admin@admin.admin\",\r\n    \"Password\":\"12345&aA\",\r\n    \"ConfirmPassword\": \"12345&aA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url}}/api/Authentication/register-admin",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"Authentication",
+						"register-admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login as admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\" : \"admin@admin.admin\",\r\n    \"Password\":\"12345&aA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url}}/api/Authentication/Login",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"Authentication",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Books, paged",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{url}}/api/books?pageNumber=1&pageSize=5",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"books"
+					],
+					"query": [
+						{
+							"key": "pageNumber",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Books, filtered",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{url}}/api/books?name=Moby-Dick",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"books"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Moby-Dick"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Books, filtered , searched",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{url}}/api/books?name=Moby-Dick&searchQuery=the",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"books"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Moby-Dick"
+						},
+						{
+							"key": "searchQuery",
+							"value": "the"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Quotes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{url}}/api/quotes",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"quotes"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXNlckB1c2VyLnVzZXIiLCJqdGkiOiI1NTQxZWI3Yy1jODQyLTRkYjMtODFhNC05NzlmZjNhMTU2MjYiLCJleHAiOjE2OTE5NTI5NTMsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjcwOTUiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo3MDk1In0.EIPbqeKzAwPrc744ff0ShcdzmC-6wc55Jju5cDHOdOk",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "localhost:7095",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "url",
+			"value": "libraryapiapp.azurewebsites.net",
+			"type": "string"
+		}
+	]
+}
